@@ -1,11 +1,9 @@
 import React from 'react';
 import Hero from '../components/Hero.tsx';
-import Navbar from '../components/Navbar.tsx';
 
 export default function HomePage() {
   return (
     <>
-   <Navbar />
 
       <main className="max-w-7xl mx-auto px-6 pb-20">
    <Hero />
