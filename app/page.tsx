@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import Hero from "@/components/Hero";
 import { ProductCard, TrendingProductCard, type Product } from "@/components/ProductCard";
 
 export default function Home() {
@@ -45,21 +46,8 @@ export default function Home() {
   return (
     <>
       <main className="max-w-7xl mx-auto px-6 pb-20">
-        <section className="mt-4 rounded-3xl overflow-hidden relative">
-          <div className="hero-gradient min-h-[500px] flex flex-col items-center justify-center text-center p-8">
-            <div className="glass p-10 rounded-3xl border-white/20">
-              <h2 className="text-4xl md:text-6xl font-black text-white mb-4 tracking-tight leading-none">
-                Elevate Your <span className="text-primary">Space</span>
-              </h2>
-              <p className="text-slate-300 text-lg mb-8 font-light">
-                Experience the pinnacle of luxury with our curated collection of premium goods, designed for the modern connoisseur.
-              </p>
-              <button className="bg-primary text-background-dark px-10 py-4 rounded-xl font-bold text-lg hover:shadow-[0_0_30px_rgba(13,242,166,0.4)] transition-all transform hover:-translate-y-1">
-                Shop Collection
-              </button>
-            </div>
-          </div>
-        </section>
+        <Hero />
+
 
         <div className="mt-20 mb-8 flex items-end justify-between px-2">
           <div>
