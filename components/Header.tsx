@@ -1,3 +1,5 @@
+import { Search, User, ShoppingCart } from "lucide-react";
+
 export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full px-6 py-4">
@@ -20,7 +22,7 @@ export default function Header() {
         </div>
         <div className="flex items-center gap-4">
           <div className="relative hidden sm:block">
-            <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 size-4" />
             <input 
               className="bg-white/5 border-white/10 rounded-lg pl-10 pr-4 py-1.5 text-sm focus:ring-primary focus:border-primary w-48 lg:w-64 outline-none" 
               placeholder="Search luxury..." 
@@ -28,10 +30,10 @@ export default function Header() {
             />
           </div>
           <button className="p-2 hover:bg-white/10 rounded-lg transition-colors">
-            <span className="material-symbols-outlined">person</span>
+            <User className="size-5" />
           </button>
           <button className="p-2 hover:bg-white/10 rounded-lg transition-colors relative">
-            <span className="material-symbols-outlined">shopping_cart</span>
+            <ShoppingCart className="size-5" />
             <span className="absolute top-1 right-1 size-4 bg-primary text-background-dark text-[10px] font-bold rounded-full flex items-center justify-center">3</span>
           </button>
         </div>

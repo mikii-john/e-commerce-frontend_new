@@ -1,3 +1,5 @@
+import { Send } from "lucide-react";
+
 export default function Footer() {
   const shopLinks = [
     { name: "New Arrivals", href: "#" },
@@ -64,7 +66,7 @@ export default function Footer() {
                 type="email"
               />
               <button className="bg-primary text-background-dark p-2 rounded-lg">
-                <span className="material-symbols-outlined">send</span>
+                <Send className="size-5" />
               </button>
             </div>
           </div>
