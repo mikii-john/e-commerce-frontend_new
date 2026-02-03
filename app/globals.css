@@ -1,34 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
 @import "tailwindcss";
 
 @theme {
+  /* Fonts */
+  --font-display: "Inter", sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui;
+
+  /* Colors */
   --color-primary: #0df2a6;
   --color-background-light: #f5f8f7;
   --color-background-dark: #020617;
-  --font-display: "Inter", sans-serif;
+  --color-luxe-gold: #d4af37;
+  --color-luxe-black: #1a1a1a;
+
+  /* Custom Animations */
+  --keyframes-shimmer: {
+    from { background-position: 200% 0; }
+    to { background-position: -200% 0; }
+  };
+  --animation-shimmer: shimmer 2s infinite linear;
+}
+
+@layer base {
+  :root {
+    --foreground-rgb: 15, 23, 42;
+    --background-start-rgb: 245, 248, 247;
+    --background-end-rgb: 245, 248, 247;
+  }
+
+  .dark {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 2, 6, 23;
+    --background-end-rgb: 2, 6, 23;
+  }
+
+  body {
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgb(var(--background-end-rgb))
+      )
+      rgb(var(--background-start-rgb));
+    min-height: 100vh;
+    @apply antialiased;
+  }
 }
 
 @layer utilities {
-  .glass {
+  /* Glass Effects */
+  .glass-panel, .glass {
     background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
-
+  
+  /* Glows & Gradients */
+  .glow-primary {
+    box-shadow: 0 0 20px rgba(13, 242, 166, 0.3);
+  }
+  
+  .gradient-text {
+    background: linear-gradient(to right, #0df2a6, #22d3ee);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
   .hero-gradient {
     background: radial-gradient(circle at top left, #0df2a6 0%, transparent 40%),
                 radial-gradient(circle at bottom right, #0ea5e9 0%, transparent 40%),
                 rgba(2, 6, 23, 1);
   }
 
+  .ambient-glow-1 {
+    background: radial-gradient(circle, rgba(13, 242, 166, 0.15) 0%, rgba(13, 242, 166, 0) 70%);
+  }
+  
+  .ambient-glow-2 {
+    background: radial-gradient(circle, rgba(34, 211, 238, 0.1) 0%, rgba(34, 211, 238, 0) 70%);
+  }
+
+  /* Shimmer Effect */
   .shimmer {
     background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0) 100%);
     background-size: 200% 100%;
-    animation: shimmer 2s infinite linear;
+    @apply animate-shimmer;
   }
-}
 
-@keyframes shimmer {
-  from { background-position: 200% 0; }
-  to { background-position: -200% 0; }
+  /* Icons */
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
 }
