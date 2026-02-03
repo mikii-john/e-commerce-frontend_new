@@ -1,15 +1,5 @@
-import { ArrowRight, Heart, ShoppingCart } from "lucide-react";
-
-interface Product {
-  id: number;
-  category?: string;
-  name: string;
-  price: string;
-  image: string;
-  alt: string;
-  badge?: string;
-  description?: string;
-}
+import { ArrowRight } from "lucide-react";
+import { ProductCard, TrendingProductCard, type Product } from "@/components/ProductCard";
 
 export default function Home() {
   const products: Product[] = [
@@ -54,9 +44,7 @@ export default function Home() {
 
   return (
     <>
-   
       <main className="max-w-7xl mx-auto px-6 pb-20">
-        {/* Hero Section */}
         <section className="mt-4 rounded-3xl overflow-hidden relative">
           <div className="hero-gradient min-h-[500px] flex flex-col items-center justify-center text-center p-8">
             <div className="glass p-10 rounded-3xl border-white/20">
@@ -73,7 +61,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Product Grid Header */}
         <div className="mt-20 mb-8 flex items-end justify-between px-2">
           <div>
             <span className="text-primary text-sm font-bold uppercase tracking-widest">New Arrivals</span>
@@ -84,13 +71,11 @@ export default function Home() {
           </a>
         </div>
 
-        {/* Glassmorphic Product Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
           
-          {/* Skeleton Loaders */}
           <div className="glass p-3 rounded-2xl opacity-60">
             <div className="aspect-square rounded-xl shimmer bg-white/5 mb-4"></div>
             <div className="px-2 space-y-3">
@@ -116,7 +101,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Secondary Grid: Trending */}
         <div className="mt-20 mb-8 px-2">
           <h3 className="text-3xl font-bold">Trending Now</h3>
         </div>
@@ -126,57 +110,6 @@ export default function Home() {
           ))}
         </div>
       </main>
- 
     </>
-  );
-}
-
-function ProductCard({ product }: { product: Product }) {
-  return (
-    <div className="glass p-3 rounded-2xl group cursor-pointer hover:border-primary/50 transition-all duration-300">
-      <div className="relative aspect-square rounded-xl overflow-hidden mb-4">
-        <div 
-          className="absolute inset-0 bg-slate-800 animate-pulse group-hover:scale-110 transition-transform duration-500 bg-cover bg-center"
-          style={{ backgroundImage: `url(${product.image})` }}
-          aria-label={product.alt}
-        ></div>
-        {product.id === 1 && (
-          <div className="absolute top-3 right-3 glass p-1.5 rounded-full">
-            <Heart className="size-4 text-white" />
-          </div>
-        )}
-      </div>
-      <div className="px-2 pb-2">
-        <p className="text-slate-400 text-xs font-medium uppercase tracking-tighter">{product.category}</p>
-        <h4 className="text-white font-semibold text-lg group-hover:text-primary transition-colors">{product.name}</h4>
-        <div className="flex items-center justify-between mt-2">
-          <span className="text-white font-bold">{product.price}</span>
-          <button className="bg-white/10 hover:bg-primary hover:text-background-dark p-2 rounded-lg transition-all">
-            <ShoppingCart className="size-5" />
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function TrendingProductCard({ product }: { product: Product }) {
-  return (
-    <div className="glass p-6 rounded-3xl flex gap-6 items-center group">
-      <div className="size-48 rounded-2xl overflow-hidden flex-shrink-0">
-        <div 
-          className="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
-          style={{ backgroundImage: `url(${product.image})` }}
-          aria-label={product.alt}
-        ></div>
-      </div>
-      <div>
-        <span className="bg-primary/20 text-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">{product.badge}</span>
-        <h4 className="text-2xl font-bold mt-3 mb-2">{product.name}</h4>
-        <p className="text-slate-400 text-sm mb-4 line-clamp-2">{product.description}</p>
-        <p className="text-primary font-bold text-xl mb-4">{product.price}</p>
-        <button className="border border-white/20 hover:border-primary hover:bg-primary/10 px-6 py-2 rounded-lg text-sm font-semibold transition-all">Details</button>
-      </div>
-    </div>
   );
 }
